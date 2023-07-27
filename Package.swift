@@ -19,7 +19,7 @@ let package = Package(
   dependencies: [
     .package(url: "https://github.com/google/swift-benchmark", from: "0.1.0"),
     .package(url: "git@github.com:matheus-air/combine-schedulers", branch: "ios-11-compatibility"),
-    .package(url: "https://github.com/pointfreeco/swift-clocks", from: "0.4.0"),
+    .package(url: "git@github.com:matheus-air/swift-clocks", branch: "ios-11-compatibility"),
     .package(url: "git@github.com:matheus-air/swift-concurrency-extras", branch: "ios-11-compatibility"),
     .package(url: "git@github.com:matheus-air/xctest-dynamic-overlay", branch: "ios-11-compatibility"),
   ],
