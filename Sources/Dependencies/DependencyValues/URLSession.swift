@@ -5,7 +5,8 @@
     import FoundationNetworking
   #endif
 
-  extension DependencyValues {
+@available(iOS 13.0, *)
+extension DependencyValues {
     /// The URL session that features should use to make URL requests.
     ///
     /// By default, the session returned from `URLSession.shared` is supplied. When used in tests,

@@ -1,5 +1,6 @@
 // MARK: - Deprecated after 0.4.2
 
+@available(iOS 13.0, *)
 extension AsyncStream {
   @available(*, deprecated, renamed: "makeStream(of:bufferingPolicy:)")
   public static func streamWithContinuation(
@@ -11,6 +12,7 @@ extension AsyncStream {
   }
 }
 
+@available(iOS 13.0, *)
 extension AsyncThrowingStream where Failure == Error {
   @available(*, deprecated, renamed: "makeStream(of:throwing:bufferingPolicy:)")
   public static func streamWithContinuation(
@@ -24,6 +26,7 @@ extension AsyncThrowingStream where Failure == Error {
 
 // MARK: -
 
+@available(iOS 13.0.0, *)
 extension ActorIsolated {
   @available(
     *,
@@ -39,6 +42,7 @@ extension ActorIsolated {
   }
 }
 
+@available(iOS 13.0, *)
 extension AsyncStream {
   @available(
     *,
@@ -68,6 +72,7 @@ extension AsyncStream {
   }
 }
 
+@available(iOS 13.0, *)
 extension AsyncThrowingStream where Failure == Error {
   @available(
     *,
@@ -97,6 +102,7 @@ extension AsyncThrowingStream where Failure == Error {
   }
 }
 
+@available(iOS 13.0, *)
 extension DependencyValues {
   @available(*, deprecated, message: "Use 'withDependencies' instead.")
   public static func withValue<Value, R>(

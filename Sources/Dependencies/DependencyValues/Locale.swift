@@ -1,5 +1,6 @@
 import Foundation
 
+@available(iOS 13.0, *)
 extension DependencyValues {
   /// The current locale that features should use.
   ///

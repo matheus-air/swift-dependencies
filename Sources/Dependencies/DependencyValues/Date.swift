@@ -1,5 +1,6 @@
 import Foundation
 
+@available(iOS 13.0, *)
 extension DependencyValues {
   /// A dependency that returns the current date.
   ///
@@ -35,7 +36,8 @@ extension DependencyValues {
     set { self[DateGeneratorKey.self] = newValue }
   }
 
-  private enum DateGeneratorKey: DependencyKey {
+    @available(iOS 13.0, *)
+    private enum DateGeneratorKey: DependencyKey {
     static let liveValue = DateGenerator { Date() }
     static let testValue = DateGenerator {
       XCTFail(#"Unimplemented: @Dependency(\.date)"#)

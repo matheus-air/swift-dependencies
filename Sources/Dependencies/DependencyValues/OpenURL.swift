@@ -1,7 +1,8 @@
 #if canImport(SwiftUI)
   import SwiftUI
 
-  extension DependencyValues {
+@available(iOS 13.0, *)
+extension DependencyValues {
     /// A dependency that opens a URL.
     @available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
     public var openURL: OpenURLEffect {
@@ -38,7 +39,8 @@
     }
   }
 
-  public struct OpenURLEffect: Sendable {
+@available(iOS 13.0.0, *)
+public struct OpenURLEffect: Sendable {
     private let handler: @Sendable (URL) async -> Bool
 
     public init(handler: @escaping @Sendable (URL) async -> Bool) {

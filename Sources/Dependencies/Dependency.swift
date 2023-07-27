@@ -59,6 +59,7 @@
 /// ``DependencyValues`` structure.
 ///
 /// [tca]: https://github.com/pointfreeco/swift-composable-architecture
+@available(iOS 13.0, *)
 @propertyWrapper
 public struct Dependency<Value>: @unchecked Sendable, _HasInitialValues {
   let initialValues: DependencyValues
@@ -119,6 +120,7 @@ public struct Dependency<Value>: @unchecked Sendable, _HasInitialValues {
   }
 }
 
+@available(iOS 13.0, *)
 protocol _HasInitialValues {
   var initialValues: DependencyValues { get }
 }

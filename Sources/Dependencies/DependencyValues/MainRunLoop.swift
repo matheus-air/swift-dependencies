@@ -1,7 +1,8 @@
 #if canImport(Combine)
   import Foundation
 
-  extension DependencyValues {
+@available(iOS 13.0, *)
+extension DependencyValues {
     /// The "main" run loop.
     ///
     /// Introduce controllable timing to your features by using the ``Dependency`` property wrapper

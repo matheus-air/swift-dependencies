@@ -1,3 +1,4 @@
+@available(iOS 13.0, *)
 extension DependencyValues {
   /// A dependency for firing off an unstructured task.
   ///
@@ -53,6 +54,7 @@ extension DependencyValues {
 /// A type for creating unstructured tasks in production and structured tasks in tests.
 ///
 /// See ``DependencyValues/fireAndForget`` for more information.
+@available(iOS 13.0, *)
 public struct FireAndForget: Sendable {
   public let operation:
     @Sendable (TaskPriority?, @Sendable @escaping () async throws -> Void) async -> Void
@@ -65,6 +67,7 @@ public struct FireAndForget: Sendable {
   }
 }
 
+@available(iOS 13.0, *)
 private enum FireAndForgetKey: DependencyKey {
   public static let liveValue = FireAndForget { priority, operation in
     Task(priority: priority) { try await operation() }

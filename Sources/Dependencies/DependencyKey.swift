@@ -159,6 +159,7 @@ public protocol TestDependencyKey {
   static var testValue: Value { get }
 }
 
+@available(iOS 13.0, *)
 extension DependencyKey {
   /// A default implementation that provides the ``liveValue`` to Xcode previews.
   ///

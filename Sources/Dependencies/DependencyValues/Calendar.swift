@@ -1,5 +1,6 @@
 import Foundation
 
+@available(iOS 13.0, *)
 extension DependencyValues {
   /// The current calendar that features should use when handling dates.
   ///

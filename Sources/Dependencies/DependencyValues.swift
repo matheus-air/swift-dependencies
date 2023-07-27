@@ -79,6 +79,7 @@ import Foundation
 /// ```
 ///
 /// Read the article <doc:RegisteringDependencies> for more information.
+@available(iOS 13.0, *)
 public struct DependencyValues: Sendable {
   @TaskLocal public static var _current = Self()
   #if DEBUG
@@ -222,6 +223,7 @@ struct CurrentDependency {
   var line: UInt?
 }
 
+@available(iOS 13.0, *)
 private let defaultContext: DependencyContext = {
   let environment = ProcessInfo.processInfo.environment
   var inferredContext: DependencyContext {
@@ -257,6 +259,7 @@ private let defaultContext: DependencyContext = {
   }
 }()
 
+@available(iOS 13.0, *)
 private final class CachedValues: @unchecked Sendable {
   struct CacheKey: Hashable, Sendable {
     let id: ObjectIdentifier
@@ -352,7 +355,8 @@ private final class CachedValues: @unchecked Sendable {
 // NB: We cannot statically link/load XCTest on Apple platforms, so we dynamically load things
 //     instead on platforms where XCTest is available.
 #if canImport(XCTest)
-  private let setUpTestObservers: Void = {
+@available(iOS 13.0, *)
+private let setUpTestObservers: Void = {
     if _XCTIsTesting {
       #if canImport(ObjectiveC)
         DispatchQueue.mainSync {

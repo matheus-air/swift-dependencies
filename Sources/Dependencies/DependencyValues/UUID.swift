@@ -1,5 +1,6 @@
 import Foundation
 
+@available(iOS 13.0, *)
 extension DependencyValues {
   /// A dependency that generates UUIDs.
   ///

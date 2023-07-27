@@ -19,6 +19,7 @@ import Foundation
 ///     duration of the operation.
 ///   - operation: An operation to perform wherein dependencies have been overridden.
 /// - Returns: The result returned from `operation`.
+@available(iOS 13.0, *)
 @discardableResult
 public func withDependencies<R>(
   _ updateValuesForOperation: (inout DependencyValues) throws -> Void,
@@ -59,7 +60,8 @@ public func withDependencies<R>(
   ///     duration of the operation.
   ///   - operation: An operation to perform wherein dependencies have been overridden.
   /// - Returns: The result returned from `operation`.
-  @_unsafeInheritExecutor
+@available(iOS 13.0, *)
+@_unsafeInheritExecutor
   @discardableResult
   public func withDependencies<R>(
     _ updateValuesForOperation: (inout DependencyValues) async throws -> Void,
@@ -111,6 +113,7 @@ public func withDependencies<R>(
 ///     duration of the operation.
 ///   - operation: The operation to run with the updated dependencies.
 /// - Returns: The result returned from `operation`.
+@available(iOS 13.0, *)
 @discardableResult
 public func withDependencies<Model: AnyObject, R>(
   from model: Model,
@@ -152,6 +155,7 @@ public func withDependencies<Model: AnyObject, R>(
 ///     property, or should have been initialized and returned from a `withDependencies` operation.
 ///   - operation: The operation to run with the updated dependencies.
 /// - Returns: The result returned from `operation`.
+@available(iOS 13.0, *)
 @discardableResult
 public func withDependencies<Model: AnyObject, R>(
   from model: Model,
@@ -180,7 +184,8 @@ public func withDependencies<Model: AnyObject, R>(
   ///     duration of the operation.
   ///   - operation: The operation to run with the updated dependencies.
   /// - Returns: The result returned from `operation`.
-  @_unsafeInheritExecutor
+@available(iOS 13.0, *)
+@_unsafeInheritExecutor
   @discardableResult
   public func withDependencies<Model: AnyObject, R>(
     from model: Model,
@@ -258,7 +263,8 @@ public func withDependencies<Model: AnyObject, R>(
   ///     operation.
   ///   - operation: The operation to run with the updated dependencies.
   /// - Returns: The result returned from `operation`.
-  @_unsafeInheritExecutor
+@available(iOS 13.0, *)
+@_unsafeInheritExecutor
   @discardableResult
   public func withDependencies<Model: AnyObject, R>(
     from model: Model,
@@ -341,6 +347,7 @@ public func withDependencies<Model: AnyObject, R>(
 ///
 /// - Parameter operation: A closure that takes a ``DependencyValues/Continuation`` value for
 ///   propagating dependencies past an escaping closure boundary.
+@available(iOS 13.0, *)
 public func withEscapedDependencies<R>(
   _ operation: (DependencyValues.Continuation) throws -> R
 ) rethrows -> R {
@@ -353,12 +360,14 @@ public func withEscapedDependencies<R>(
 ///
 /// - Parameter operation: A closure that takes a ``DependencyValues/Continuation`` value for
 ///   propagating dependencies past an escaping closure boundary.
+@available(iOS 13.0, *)
 public func withEscapedDependencies<R>(
   _ operation: (DependencyValues.Continuation) async throws -> R
 ) async rethrows -> R {
   try await operation(DependencyValues.Continuation())
 }
 
+@available(iOS 13.0, *)
 extension DependencyValues {
   /// A capture of dependencies to use in an escaping context.
   ///
@@ -393,8 +402,10 @@ extension DependencyValues {
   }
 }
 
+@available(iOS 13.0, *)
 private let dependencyObjects = DependencyObjects()
 
+@available(iOS 13.0, *)
 private class DependencyObjects: @unchecked Sendable {
   private var storage = LockIsolated<[ObjectIdentifier: DependencyObject]>([:])
 
@@ -426,11 +437,13 @@ private class DependencyObjects: @unchecked Sendable {
   }
 }
 
+@available(iOS 13.0, *)
 private struct DependencyObject {
   weak var object: AnyObject?
   let dependencyValues: DependencyValues
 }
 
+@available(iOS 13.0, *)
 @_transparent
 private func isSetting<R>(
   _ value: Bool,
@@ -443,6 +456,7 @@ private func isSetting<R>(
   #endif
 }
 
+@available(iOS 13.0, *)
 @_transparent
 private func isSetting<R>(
   _ value: Bool,
